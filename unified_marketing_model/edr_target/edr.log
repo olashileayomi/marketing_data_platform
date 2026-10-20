@@ -1,0 +1,777 @@
+2026-10-20 20:23:09 — INFO — Running with edr=0.26.0
+2026-10-20 20:23:10 — DEBUG — Target '{{ env_var('DBT_TARGET', 'dev') }}' not found in profile outputs
+2026-10-20 20:23:10 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 20:23:26 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 270
+[31;20m2026-10-20 20:23:26 — ERROR — Unable to get the latest invocation: list index out of range[0m
+2026-10-20 20:23:26 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 20:23:27 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 518
+2026-10-20 20:23:27 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 20:23:30 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 464
+2026-10-20 20:23:30 — INFO — Elementary's database and schema: 'bronze_development.elementary'
+2026-10-20 20:23:30 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 90, "invocations_per_test": 720, "disable_passed_test_metrics": false, "skip_test_result_rows": false}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+[31;20m2026-10-20 20:23:34 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+{"info": {"name": "RunningOperationCaughtError", "code": "Q001", "msg": "[\u001b[31mERROR\u001b[0m]: Encountered an error while running operation: Database Error\n  Database Error\n    [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.\n    Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].\n    If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.\n    To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 16 pos 22", "level": "error", "invocationId": "f26fa63a-be94-43bc-afa1-92df5a71f186", "pid": 24230, "thread": "MainThread", "ts": "2026-10-20T19:23:33.814268Z"}, "data": {"exc": "Database Error\n  Database Error\n    [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.\n    Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].\n    If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.\n    To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 16 pos 22"}}
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/api/report/report.py", line 85, in get_report_data
+    tests_api = TestsAPI(
+                ^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/api/tests/tests.py", line 53, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/api/tests/tests.py", line 67, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/fetchers/tests/tests.py", line 27, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 369, in run_operation
+    result = self._run_command(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 227, in _run_command
+    return self._inner_run_command_with_retries(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/tenacity/__init__.py", line 331, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/tenacity/__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/tenacity/__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/tenacity/__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/tenacity/__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 264, in _inner_run_command_with_retries
+    result = self._inner_run_command(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/clients/dbt/api_dbt_runner.py", line 59, in _inner_run_command
+    raise DbtCommandError(
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+{"info": {"name": "RunningOperationCaughtError", "code": "Q001", "msg": "[\u001b[31mERROR\u001b[0m]: Encountered an error while running operation: Database Error\n  Database Error\n    [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.\n    Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].\n    If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.\n    To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 16 pos 22", "level": "error", "invocationId": "f26fa63a-be94-43bc-afa1-92df5a71f186", "pid": 24230, "thread": "MainThread", "ts": "2026-10-20T19:23:33.814268Z"}, "data": {"exc": "Database Error\n  Database Error\n    [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.\n    Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].\n    If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.\n    To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 16 pos 22"}}
+2026-10-20 20:26:53 — INFO — Running with edr=0.26.0
+2026-10-20 20:26:54 — DEBUG — Target '{{ env_var('DBT_TARGET', 'dev') }}' not found in profile outputs
+2026-10-20 20:26:54 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 20:27:02 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 270
+[31;20m2026-10-20 20:27:02 — ERROR — Unable to get the latest invocation: list index out of range[0m
+2026-10-20 20:27:02 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 20:27:04 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 518
+2026-10-20 20:27:04 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 20:27:06 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 464
+2026-10-20 20:27:06 — INFO — Elementary's database and schema: 'bronze_development.elementary'
+2026-10-20 20:27:06 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 90, "invocations_per_test": 720, "disable_passed_test_metrics": false, "skip_test_result_rows": false}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+[31;20m2026-10-20 20:27:10 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+{"info": {"name": "RunningOperationCaughtError", "code": "Q001", "msg": "[\u001b[31mERROR\u001b[0m]: Encountered an error while running operation: Database Error\n  Database Error\n    [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.\n    Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].\n    If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.\n    To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 16 pos 22", "level": "error", "invocationId": "d43c8f4a-33b3-4dda-9612-706ccf27cdbb", "pid": 24508, "thread": "MainThread", "ts": "2026-10-20T19:27:09.217211Z"}, "data": {"exc": "Database Error\n  Database Error\n    [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.\n    Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].\n    If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.\n    To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 16 pos 22"}}
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/api/report/report.py", line 85, in get_report_data
+    tests_api = TestsAPI(
+                ^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/api/tests/tests.py", line 53, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/api/tests/tests.py", line 67, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/fetchers/tests/tests.py", line 27, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 369, in run_operation
+    result = self._run_command(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 227, in _run_command
+    return self._inner_run_command_with_retries(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/tenacity/__init__.py", line 331, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/tenacity/__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/tenacity/__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/tenacity/__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/tenacity/__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 264, in _inner_run_command_with_retries
+    result = self._inner_run_command(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/clients/dbt/api_dbt_runner.py", line 59, in _inner_run_command
+    raise DbtCommandError(
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+{"info": {"name": "RunningOperationCaughtError", "code": "Q001", "msg": "[\u001b[31mERROR\u001b[0m]: Encountered an error while running operation: Database Error\n  Database Error\n    [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.\n    Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].\n    If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.\n    To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 16 pos 22", "level": "error", "invocationId": "d43c8f4a-33b3-4dda-9612-706ccf27cdbb", "pid": 24508, "thread": "MainThread", "ts": "2026-10-20T19:27:09.217211Z"}, "data": {"exc": "Database Error\n  Database Error\n    [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.\n    Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].\n    If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.\n    To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 16 pos 22"}}
+2026-10-20 20:36:12 — INFO — Running with edr=0.26.0
+2026-10-20 20:36:14 — DEBUG — Target '{{ env_var('DBT_TARGET', 'dev') }}' not found in profile outputs
+2026-10-20 20:36:14 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 20:36:23 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 270
+[31;20m2026-10-20 20:36:23 — ERROR — Unable to get the latest invocation: list index out of range[0m
+2026-10-20 20:36:23 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 20:36:25 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 518
+2026-10-20 20:36:25 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 20:36:26 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 464
+2026-10-20 20:36:26 — INFO — Elementary's database and schema: 'bronze_development.elementary'
+2026-10-20 20:36:26 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 90, "invocations_per_test": 720, "disable_passed_test_metrics": false, "skip_test_result_rows": false}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+[31;20m2026-10-20 20:36:31 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+{"info": {"name": "RunningOperationCaughtError", "code": "Q001", "msg": "[\u001b[31mERROR\u001b[0m]: Encountered an error while running operation: Database Error\n  Database Error\n    [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.\n    Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].\n    If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.\n    To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 16 pos 22", "level": "error", "invocationId": "5b2c6b33-cdeb-4d1c-b200-125192d4f14f", "pid": 25778, "thread": "MainThread", "ts": "2026-10-20T19:36:30.251649Z"}, "data": {"exc": "Database Error\n  Database Error\n    [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.\n    Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].\n    If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.\n    To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 16 pos 22"}}
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/api/report/report.py", line 85, in get_report_data
+    tests_api = TestsAPI(
+                ^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/api/tests/tests.py", line 53, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/api/tests/tests.py", line 67, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/fetchers/tests/tests.py", line 27, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 369, in run_operation
+    result = self._run_command(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 227, in _run_command
+    return self._inner_run_command_with_retries(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/tenacity/__init__.py", line 331, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/tenacity/__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/tenacity/__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/tenacity/__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/tenacity/__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 264, in _inner_run_command_with_retries
+    result = self._inner_run_command(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/clients/dbt/api_dbt_runner.py", line 59, in _inner_run_command
+    raise DbtCommandError(
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+{"info": {"name": "RunningOperationCaughtError", "code": "Q001", "msg": "[\u001b[31mERROR\u001b[0m]: Encountered an error while running operation: Database Error\n  Database Error\n    [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.\n    Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].\n    If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.\n    To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 16 pos 22", "level": "error", "invocationId": "5b2c6b33-cdeb-4d1c-b200-125192d4f14f", "pid": 25778, "thread": "MainThread", "ts": "2026-10-20T19:36:30.251649Z"}, "data": {"exc": "Database Error\n  Database Error\n    [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.\n    Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].\n    If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.\n    To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 16 pos 22"}}
+2026-10-20 20:38:22 — INFO — Running with edr=0.26.0
+2026-10-20 20:38:23 — DEBUG — Target '{{ env_var('DBT_TARGET', 'dev') }}' not found in profile outputs
+2026-10-20 20:38:23 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 20:38:31 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 270
+[31;20m2026-10-20 20:38:31 — ERROR — Unable to get the latest invocation: list index out of range[0m
+2026-10-20 20:38:31 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 20:38:34 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 518
+2026-10-20 20:38:34 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 20:38:35 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 464
+2026-10-20 20:38:35 — INFO — Elementary's database and schema: 'bronze_development.elementary'
+2026-10-20 20:38:35 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 90, "invocations_per_test": 720, "disable_passed_test_metrics": false, "skip_test_result_rows": false}} --project-dir /home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+[31;20m2026-10-20 20:38:39 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+{"info": {"name": "RunningOperationCaughtError", "code": "Q001", "msg": "[\u001b[31mERROR\u001b[0m]: Encountered an error while running operation: Database Error\n  Database Error\n    [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.\n    Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].\n    If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.\n    To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 16 pos 22", "level": "error", "invocationId": "9ac59422-cd37-4891-9fdd-7321c305b6e1", "pid": 26030, "thread": "MainThread", "ts": "2026-10-20T19:38:38.657402Z"}, "data": {"exc": "Database Error\n  Database Error\n    [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.\n    Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].\n    If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.\n    To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 16 pos 22"}}
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/api/report/report.py", line 85, in get_report_data
+    tests_api = TestsAPI(
+                ^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/api/tests/tests.py", line 53, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/api/tests/tests.py", line 67, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/monitor/fetchers/tests/tests.py", line 27, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 369, in run_operation
+    result = self._run_command(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 227, in _run_command
+    return self._inner_run_command_with_retries(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/tenacity/__init__.py", line 331, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/tenacity/__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/tenacity/__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/tenacity/__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/tenacity/__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 264, in _inner_run_command_with_retries
+    result = self._inner_run_command(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/tools/elementary-data/lib/python3.11/site-packages/elementary/clients/dbt/api_dbt_runner.py", line 59, in _inner_run_command
+    raise DbtCommandError(
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+{"info": {"name": "RunningOperationCaughtError", "code": "Q001", "msg": "[\u001b[31mERROR\u001b[0m]: Encountered an error while running operation: Database Error\n  Database Error\n    [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.\n    Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].\n    If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.\n    To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 16 pos 22", "level": "error", "invocationId": "9ac59422-cd37-4891-9fdd-7321c305b6e1", "pid": 26030, "thread": "MainThread", "ts": "2026-10-20T19:38:38.657402Z"}, "data": {"exc": "Database Error\n  Database Error\n    [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.\n    Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].\n    If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.\n    To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 16 pos 22"}}
+2026-10-20 20:43:03 — INFO — Running with edr=0.22.0
+2026-10-20 20:43:04 — INFO — Installing packages for edr internal dbt package...
+2026-10-20 20:43:04 — INFO — Running dbt command --log-format json deps --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 20:43:20 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 20:43:38 — DEBUG — Result bytes size for command '['--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}}', '--project-dir', '/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project', '--profiles-dir', '/home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model']' is 270
+[31;20m2026-10-20 20:43:38 — ERROR — Unable to get the latest invocation: list index out of range[0m
+2026-10-20 20:43:38 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 20:43:40 — DEBUG — Result bytes size for command '['--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}}', '--project-dir', '/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project', '--profiles-dir', '/home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model']' is 518
+2026-10-20 20:43:40 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 20:43:41 — DEBUG — Result bytes size for command '['--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}}', '--project-dir', '/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project', '--profiles-dir', '/home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model']' is 464
+2026-10-20 20:43:41 — INFO — Elementary's database and schema: 'bronze_development.elementary'
+2026-10-20 20:43:41 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 90, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+[31;20m2026-10-20 20:43:45 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+{"info": {"name": "RunningOperationCaughtError", "code": "Q001", "msg": "[\u001b[31mERROR\u001b[0m]: Encountered an error while running operation: Database Error\n  Database Error\n    [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.\n    Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].\n    If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.\n    To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 17 pos 22", "level": "error", "invocationId": "b9cd8b88-14e6-42db-88a5-fcd2631cd4bf", "pid": 26801, "thread": "MainThread", "ts": "2026-10-20T19:43:45.000590Z"}, "data": {"exc": "Database Error\n  Database Error\n    [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.\n    Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].\n    If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.\n    To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 17 pos 22"}}
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/api/report/report.py", line 84, in get_report_data
+    tests_api = TestsAPI(
+                ^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/api/tests/tests.py", line 52, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/api/tests/tests.py", line 64, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/fetchers/tests/tests.py", line 26, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 178, in run_operation
+    result = self._run_command(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 115, in _run_command
+    result = self._inner_run_command(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/api_dbt_runner.py", line 54, in _inner_run_command
+    raise DbtCommandError(
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+{"info": {"name": "RunningOperationCaughtError", "code": "Q001", "msg": "[\u001b[31mERROR\u001b[0m]: Encountered an error while running operation: Database Error\n  Database Error\n    [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.\n    Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].\n    If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.\n    To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 17 pos 22", "level": "error", "invocationId": "b9cd8b88-14e6-42db-88a5-fcd2631cd4bf", "pid": 26801, "thread": "MainThread", "ts": "2026-10-20T19:43:45.000590Z"}, "data": {"exc": "Database Error\n  Database Error\n    [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.\n    Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].\n    If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.\n    To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 17 pos 22"}}
+2026-10-20 21:02:19 — INFO — Running with edr=0.26.1
+2026-10-20 21:02:19 — INFO — Both dbt-core 1.12.5 and a dbt v2 installation were detected - using dbt v2. To use dbt-core instead, set DBT_RUNNER_METHOD=api (or uninstall dbt v2).
+2026-10-20 21:02:19 — DEBUG — Target '{{ env_var('DBT_TARGET', 'dev') }}' not found in profile outputs
+2026-10-20 21:02:19 — INFO — edr internal dbt package is not up-to-date, updating it...
+2026-10-20 21:02:19 — INFO — Running dbt command --log-format json deps --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 21:02:22 — DEBUG — Result bytes size for command '--log-format json deps --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 4463
+2026-10-20 21:02:22 — INFO — Running with dbt=2.0.8
+2026-10-20 21:02:22 — INFO — running dbt with arguments {"command":"deps","profiles_dir":"/home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model","vars":"{}","limit":"10","debug":false,"log_format":"json","log_path":"/home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model/edr_target","project_dir":"/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project","quiet":false,"write_json":true,"write_catalog":false,"manage_state":false}
+2026-10-20 21:02:22 — INFO — dbt 2.0.8
+2026-10-20 21:02:22 — INFO — [warning] [FmtError (dbt1041)]: Old format package-lock.yml file found. Please provide package definitions.
+2026-10-20 21:02:22 — INFO — Loading packages.yml
+2026-10-20 21:02:22 — INFO — Installing dbt-labs/dbt_utils
+2026-10-20 21:02:22 — INFO — Installing elementary-data/elementary
+2026-10-20 21:02:22 — INFO —  Installed dbt-labs/dbt_utils: 0.8.6
+2026-10-20 21:02:22 — INFO —  Installed elementary-data/elementary: 0.26.1
+2026-10-20 21:02:22 — INFO — Updated version available for dbt_utils@0.8.6: 1.4.1
+2026-10-20 21:02:22 — INFO — 
+==================== Execution Summary =====================
+Finished 'deps' with 1 warning [3.3s]
+2026-10-20 21:02:22 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+[31;20m2026-10-20 21:02:23 — ERROR — Unable to get the latest invocation: Failed to run dbt command.
+[error] [InvalidConfig (dbt1005)]: Jinja render error: invalid operation: 'env_var': environment variable 'DEV_HTTP_PATH' not found
+(in :1:1)[0m
+2026-10-20 21:02:23 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 21:02:23 — DEBUG — Could not get warehouse info.
+Traceback (most recent call last):
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/subprocess_dbt_runner.py", line 27, in _inner_run_command
+    result = subprocess.run(
+             ^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/home/habeeb_olashile_ajao/.local/bin/dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}}', '--project-dir', '/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project', '--profiles-dir', '/home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/data_monitoring/data_monitoring.py", line 139, in _get_warehouse_info
+    self.internal_dbt_runner.run_operation(
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 369, in run_operation
+    result = self._run_command(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 227, in _run_command
+    return self._inner_run_command_with_retries(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 404, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 550, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 440, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 462, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 553, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 264, in _inner_run_command_with_retries
+    result = self._inner_run_command(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/subprocess_dbt_runner.py", line 48, in _inner_run_command
+    raise DbtCommandError(
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+[error] [InvalidConfig (dbt1005)]: Jinja render error: invalid operation: 'env_var': environment variable 'DEV_HTTP_PATH' not found
+(in :1:1)
+2026-10-20 21:02:23 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+[31;20m2026-10-20 21:02:24 — ERROR — Failed to parse Elementary's database and schema.[0m
+2026-10-20 21:02:24 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 90, "invocations_per_test": 720, "disable_passed_test_metrics": false, "skip_test_result_rows": false}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+[31;20m2026-10-20 21:02:24 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+[error] [InvalidConfig (dbt1005)]: Jinja render error: invalid operation: 'env_var': environment variable 'DEV_HTTP_PATH' not found
+(in :1:1)
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/subprocess_dbt_runner.py", line 27, in _inner_run_command
+    result = subprocess.run(
+             ^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/home/habeeb_olashile_ajao/.local/bin/dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 90, "invocations_per_test": 720, "disable_passed_test_metrics": false, "skip_test_result_rows": false}}', '--project-dir', '/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project', '--profiles-dir', '/home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/api/report/report.py", line 85, in get_report_data
+    tests_api = TestsAPI(
+                ^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/api/tests/tests.py", line 53, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/api/tests/tests.py", line 67, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/fetchers/tests/tests.py", line 27, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 369, in run_operation
+    result = self._run_command(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 227, in _run_command
+    return self._inner_run_command_with_retries(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 404, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 550, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 440, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 462, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 553, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 264, in _inner_run_command_with_retries
+    result = self._inner_run_command(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/subprocess_dbt_runner.py", line 48, in _inner_run_command
+    raise DbtCommandError(
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+[error] [InvalidConfig (dbt1005)]: Jinja render error: invalid operation: 'env_var': environment variable 'DEV_HTTP_PATH' not found
+(in :1:1)
+2026-10-20 21:03:30 — INFO — Running with edr=0.26.1
+2026-10-20 21:03:30 — INFO — Both dbt-core 1.12.5 and a dbt v2 installation were detected - using dbt v2. To use dbt-core instead, set DBT_RUNNER_METHOD=api (or uninstall dbt v2).
+2026-10-20 21:03:30 — DEBUG — Target '{{ env_var('DBT_TARGET', 'dev') }}' not found in profile outputs
+2026-10-20 21:03:30 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 21:03:45 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 6511
+[31;20m2026-10-20 21:03:45 — ERROR — Unable to get the latest invocation: list index out of range[0m
+2026-10-20 21:03:45 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 21:03:46 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 6767
+2026-10-20 21:03:46 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 21:03:47 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 6718
+2026-10-20 21:03:47 — INFO — Elementary's database and schema: 'bronze_development.elementary'
+2026-10-20 21:03:47 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 90, "invocations_per_test": 720, "disable_passed_test_metrics": false, "skip_test_result_rows": false}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+[31;20m2026-10-20 21:03:53 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+[error] [DbDriverFailed (dbt1308)]: failed to execute query: databricks: execution error: failed to execute query: unexpected operation state ERROR_STATE: [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.
+Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].
+If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.
+To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 16 pos 22
+(in :13:22)
+  --> macros/get_test_results.sql:101:54
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/subprocess_dbt_runner.py", line 27, in _inner_run_command
+    result = subprocess.run(
+             ^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/home/habeeb_olashile_ajao/.local/bin/dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 90, "invocations_per_test": 720, "disable_passed_test_metrics": false, "skip_test_result_rows": false}}', '--project-dir', '/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project', '--profiles-dir', '/home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/api/report/report.py", line 85, in get_report_data
+    tests_api = TestsAPI(
+                ^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/api/tests/tests.py", line 53, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/api/tests/tests.py", line 67, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/fetchers/tests/tests.py", line 27, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 369, in run_operation
+    result = self._run_command(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 227, in _run_command
+    return self._inner_run_command_with_retries(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 404, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 550, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 440, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 462, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 553, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 264, in _inner_run_command_with_retries
+    result = self._inner_run_command(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/subprocess_dbt_runner.py", line 48, in _inner_run_command
+    raise DbtCommandError(
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+[error] [DbDriverFailed (dbt1308)]: failed to execute query: databricks: execution error: failed to execute query: unexpected operation state ERROR_STATE: [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.
+Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].
+If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.
+To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 16 pos 22
+(in :13:22)
+  --> macros/get_test_results.sql:101:54
+2026-10-20 21:28:19 — INFO — Running with edr=0.26.1
+2026-10-20 21:28:19 — INFO — Both dbt-core 1.12.5 and a dbt v2 installation were detected - using dbt v2. To use dbt-core instead, set DBT_RUNNER_METHOD=api (or uninstall dbt v2).
+2026-10-20 21:28:19 — DEBUG — Target '{{ env_var('DBT_TARGET', 'dev') }}' not found in profile outputs
+2026-10-20 21:28:19 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 21:28:25 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 6510
+[31;20m2026-10-20 21:28:25 — ERROR — Unable to get the latest invocation: list index out of range[0m
+2026-10-20 21:28:25 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 21:28:26 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 6767
+2026-10-20 21:28:26 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 21:28:28 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 6717
+2026-10-20 21:28:28 — INFO — Elementary's database and schema: 'bronze_development.elementary'
+2026-10-20 21:28:28 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 90, "invocations_per_test": 720, "disable_passed_test_metrics": false, "skip_test_result_rows": false}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+[31;20m2026-10-20 21:28:33 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+[error] [DbDriverFailed (dbt1308)]: failed to execute query: databricks: execution error: failed to execute query: unexpected operation state ERROR_STATE: [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.
+Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].
+If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.
+To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 16 pos 22
+(in :13:22)
+  --> macros/get_test_results.sql:101:54
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/subprocess_dbt_runner.py", line 27, in _inner_run_command
+    result = subprocess.run(
+             ^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/home/habeeb_olashile_ajao/.local/bin/dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 90, "invocations_per_test": 720, "disable_passed_test_metrics": false, "skip_test_result_rows": false}}', '--project-dir', '/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project', '--profiles-dir', '/home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/api/report/report.py", line 85, in get_report_data
+    tests_api = TestsAPI(
+                ^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/api/tests/tests.py", line 53, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/api/tests/tests.py", line 67, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/fetchers/tests/tests.py", line 27, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 369, in run_operation
+    result = self._run_command(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 227, in _run_command
+    return self._inner_run_command_with_retries(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 404, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 550, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 440, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 462, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 553, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 264, in _inner_run_command_with_retries
+    result = self._inner_run_command(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/subprocess_dbt_runner.py", line 48, in _inner_run_command
+    raise DbtCommandError(
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+[error] [DbDriverFailed (dbt1308)]: failed to execute query: databricks: execution error: failed to execute query: unexpected operation state ERROR_STATE: [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.
+Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].
+If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.
+To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 16 pos 22
+(in :13:22)
+  --> macros/get_test_results.sql:101:54
+2026-10-20 21:37:10 — INFO — Running with edr=0.26.1
+2026-10-20 21:37:10 — INFO — Both dbt-core 1.12.5 and a dbt v2 installation were detected - using dbt v2. To use dbt-core instead, set DBT_RUNNER_METHOD=api (or uninstall dbt v2).
+2026-10-20 21:37:10 — DEBUG — Target '{{ env_var('DBT_TARGET', 'dev') }}' not found in profile outputs
+2026-10-20 21:37:10 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 21:37:17 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 6509
+[31;20m2026-10-20 21:37:17 — ERROR — Unable to get the latest invocation: list index out of range[0m
+2026-10-20 21:37:17 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 21:37:18 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 6766
+2026-10-20 21:37:18 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 21:37:19 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 6718
+2026-10-20 21:37:19 — INFO — Elementary's database and schema: 'bronze_development.elementary'
+2026-10-20 21:37:19 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 90, "invocations_per_test": 720, "disable_passed_test_metrics": false, "skip_test_result_rows": false}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+[31;20m2026-10-20 21:37:25 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+[error] [DbDriverFailed (dbt1308)]: failed to execute query: databricks: execution error: failed to execute query: unexpected operation state ERROR_STATE: [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.
+Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].
+If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.
+To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 16 pos 22
+(in :13:22)
+  --> macros/get_test_results.sql:101:54
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/subprocess_dbt_runner.py", line 27, in _inner_run_command
+    result = subprocess.run(
+             ^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/home/habeeb_olashile_ajao/.local/bin/dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 90, "invocations_per_test": 720, "disable_passed_test_metrics": false, "skip_test_result_rows": false}}', '--project-dir', '/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project', '--profiles-dir', '/home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/api/report/report.py", line 85, in get_report_data
+    tests_api = TestsAPI(
+                ^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/api/tests/tests.py", line 53, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/api/tests/tests.py", line 67, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/fetchers/tests/tests.py", line 27, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 369, in run_operation
+    result = self._run_command(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 227, in _run_command
+    return self._inner_run_command_with_retries(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 404, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 550, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 440, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 462, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 553, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 264, in _inner_run_command_with_retries
+    result = self._inner_run_command(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/subprocess_dbt_runner.py", line 48, in _inner_run_command
+    raise DbtCommandError(
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+[error] [DbDriverFailed (dbt1308)]: failed to execute query: databricks: execution error: failed to execute query: unexpected operation state ERROR_STATE: [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.
+Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].
+If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.
+To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 16 pos 22
+(in :13:22)
+  --> macros/get_test_results.sql:101:54
+2026-10-20 21:50:13 — INFO — Running with edr=0.26.1
+2026-10-20 21:50:13 — INFO — Both dbt-core 1.12.5 and a dbt v2 installation were detected - using dbt v2. To use dbt-core instead, set DBT_RUNNER_METHOD=api (or uninstall dbt v2).
+2026-10-20 21:50:13 — DEBUG — Target '{{ env_var('DBT_TARGET', 'dev') }}' not found in profile outputs
+2026-10-20 21:50:13 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 21:50:19 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 6508
+[31;20m2026-10-20 21:50:19 — ERROR — Unable to get the latest invocation: list index out of range[0m
+2026-10-20 21:50:19 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 21:50:20 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 6767
+2026-10-20 21:50:20 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 21:50:21 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 6717
+2026-10-20 21:50:21 — INFO — Elementary's database and schema: 'bronze_development.elementary'
+2026-10-20 21:50:21 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 90, "invocations_per_test": 720, "disable_passed_test_metrics": false, "skip_test_result_rows": false}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+[31;20m2026-10-20 21:50:27 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+[error] [DbDriverFailed (dbt1308)]: failed to execute query: databricks: execution error: failed to execute query: unexpected operation state ERROR_STATE: [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.
+Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].
+If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.
+To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 16 pos 22
+(in :13:22)
+  --> macros/get_test_results.sql:101:54
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/subprocess_dbt_runner.py", line 27, in _inner_run_command
+    result = subprocess.run(
+             ^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/home/habeeb_olashile_ajao/.local/bin/dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 90, "invocations_per_test": 720, "disable_passed_test_metrics": false, "skip_test_result_rows": false}}', '--project-dir', '/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project', '--profiles-dir', '/home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/api/report/report.py", line 85, in get_report_data
+    tests_api = TestsAPI(
+                ^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/api/tests/tests.py", line 53, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/api/tests/tests.py", line 67, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/fetchers/tests/tests.py", line 27, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 369, in run_operation
+    result = self._run_command(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 227, in _run_command
+    return self._inner_run_command_with_retries(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 404, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 550, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 440, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 462, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/.local/share/uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 553, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 264, in _inner_run_command_with_retries
+    result = self._inner_run_command(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/clients/dbt/subprocess_dbt_runner.py", line 48, in _inner_run_command
+    raise DbtCommandError(
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+[error] [DbDriverFailed (dbt1308)]: failed to execute query: databricks: execution error: failed to execute query: unexpected operation state ERROR_STATE: [TABLE_OR_VIEW_NOT_FOUND] The table or view `bronze_development`.`elementary`.`elementary_test_results` cannot be found. Verify the spelling and correctness of the schema and catalog.
+Search path: [`system`.`session`, `system`.`builtin`, `system`.`ai`, `bronze_development`.`elementary`].
+If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.
+To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01; line 16 pos 22
+(in :13:22)
+  --> macros/get_test_results.sql:101:54
+2026-10-20 22:08:10 — INFO — Running with edr=0.26.1
+2026-10-20 22:08:10 — INFO — Both dbt-core 1.12.5 and a dbt v2 installation were detected - using dbt v2. To use dbt-core instead, set DBT_RUNNER_METHOD=api (or uninstall dbt v2).
+2026-10-20 22:08:10 — DEBUG — Target '{{ env_var('DBT_TARGET', 'dev') }}' not found in profile outputs
+2026-10-20 22:08:10 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 22:08:18 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 8867
+2026-10-20 22:08:18 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 22:08:19 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 6767
+2026-10-20 22:08:19 — INFO — edr (0.26.1) and Elementary's dbt package (0.26.1) are compatible.
+2026-10-20 22:08:19 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 22:08:20 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 6717
+2026-10-20 22:08:20 — INFO — Elementary's database and schema: 'bronze_development.elementary'
+2026-10-20 22:08:20 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 90, "invocations_per_test": 720, "disable_passed_test_metrics": false, "skip_test_result_rows": false}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 22:08:30 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 90, "invocations_per_test": 720, "disable_passed_test_metrics": false, "skip_test_result_rows": false}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 6760
+2026-10-20 22:08:30 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_source_freshness_results", "macro_args": {"days_back": 90, "invocations_per_test": 720}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 22:08:36 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_source_freshness_results", "macro_args": {"days_back": 90, "invocations_per_test": 720}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 6696
+2026-10-20 22:08:36 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_seeds", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 22:08:39 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_seeds", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 6629
+2026-10-20 22:08:39 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_snapshots", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 22:08:44 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_snapshots", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 6632
+2026-10-20 22:08:44 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models", "macro_args": {"exclude_elementary": true}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 22:08:49 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models", "macro_args": {"exclude_elementary": true}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 17711
+2026-10-20 22:08:49 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_sources", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 22:08:53 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_sources", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 16493
+2026-10-20 22:08:53 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_exposures", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 22:08:59 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_exposures", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 6633
+2026-10-20 22:08:59 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_singular_tests", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 22:09:02 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_singular_tests", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 6639
+2026-10-20 22:09:02 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_runs", "macro_args": {"days_back": 90, "exclude_elementary": true}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 22:09:06 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_runs", "macro_args": {"days_back": 90, "exclude_elementary": true}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 6682
+2026-10-20 22:09:06 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_dbt_models_test_coverage", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 22:09:10 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_dbt_models_test_coverage", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 8904
+2026-10-20 22:09:10 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_tests", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 22:09:16 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_tests", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 57475
+2026-10-20 22:09:16 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_nodes_depends_on_nodes", "macro_args": {"exclude_elementary": true}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 22:09:22 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_nodes_depends_on_nodes", "macro_args": {"exclude_elementary": true}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 13352
+2026-10-20 22:09:22 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_latest_invocation", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 22:09:26 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_latest_invocation", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 13712
+2026-10-20 22:09:26 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_latest_invocations_data", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model
+2026-10-20 22:09:32 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_latest_invocations_data", "macro_args": {}} --project-dir /home/habeeb_olashile_ajao/marketing_data_platform/.venv/lib/python3.11/site-packages/elementary/monitor/dbt_project --profiles-dir /home/habeeb_olashile_ajao/marketing_data_platform/unified_marketing_model' is 7202

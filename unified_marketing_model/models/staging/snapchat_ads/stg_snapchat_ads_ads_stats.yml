@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: stg_snapchat_ads_ads_stats
+    description: Snapchat daily stats aggregated at the ad level
+    columns:
+      - name: ad_detail_id
+        data_tests:
+          - not_null
+      - name: ad_currency_code
+        description: The currency code used for the Snapchat ad (e.g., USD, EUR)
+      - name: ad_country  
+        description: The country where the Snapchat ad was shown
+      - name: ad_spend
+        description: The amount spent on the ad for the given date
+      - name: ad_clicks
+        description: The number of clicks on the ad for the given date
+      - name: data_src
+        description: The platform from which the ad data was sourced (e.g., Snapchat)
+      - name: ad_impressions  
+        description: The number of times the ad was shown for the given date
+      - name: ad_date
+        description: The date for which the ad stats are recorded
+        data_tests: 
+          - not_null

@@ -1,0 +1,49 @@
+sources:
+  - name: facebook_ads
+    database: bronze_development
+    description: data from  facebook plaform (static)
+    schema: staging
+    config:
+      enabled: true
+      meta:
+        owner: "@habeeb_ajao"
+      freshness:
+        warn_after:
+          count: 2
+          period: day
+
+    tables:
+      - name: campaigns
+        description: campaign data from  facebook plaform (static)
+        identifier: new_campaign_de_randomized
+        config:
+          enabled: true
+          event_time: campaign_updated_at
+
+      - name: adgroups
+        description: adgroups data from  facebook plaform (static)
+        identifier: new_adgroup_de_randomized
+        config:
+          enabled: true
+          event_time: ad_group_updated_at
+
+      - name: ads
+        description: ads data from  facebook plaform (static)
+        identifier: new_ads_de_randomized
+        config:
+          enabled: true
+          event_time: ad_updated_at
+
+      - name: ads_stats
+        description: ads stats on spend, clicks and impression data from  facebook plaform (static)
+        identifier: ads_stats
+        config:
+          enabled: true
+          event_time: ad_date
+
+      - name: accounts
+        description: accounts data from  facebook plaform (static)
+        identifier: new_account_de_randomized
+        config:
+          enabled: true
+          event_time: account_updated_at

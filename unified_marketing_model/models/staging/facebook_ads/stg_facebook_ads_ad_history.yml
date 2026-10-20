@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: stg_facebook_ads_ad_history
+    description: Facebook ads source for identifiers
+    columns:
+      - name: ad_id
+        data_tests:
+          - not_null
+          - unique
+      - name: campaign_id
+        description: The campaign ID associated with the ad
+        data_tests:
+          - not_null
+      - name: ad_group_id
+        description: The ad group ID associated with the ad
+        data_tests:
+          - not_null
+      - name: account_id
+        description: The account ID associated with the ad
+        data_tests:
+          - not_null
+      - name: ad_name
+        description: The name of the ad
+    
+      - name: ad_status
+        description: The status of the ad (e.g., ACTIVE, PAUSED, ARCHIVED)
+      
+      - name: ad_updated_at
+        description: The last time the ad was updated
+        

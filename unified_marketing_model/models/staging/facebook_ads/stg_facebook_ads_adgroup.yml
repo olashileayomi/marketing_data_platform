@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_facebook_ads_adgroup
+    description: Facebook adgroup history
+    columns:
+      - name: ad_group_id
+        description: The unique identifier for the Facebook ad group
+        data_tests:
+          - not_null
+          - unique
+      - name: ad_group_name
+        description: The name of the Facebook ad group
+      - name: ad_group_updated_at
+        description: The last time the Facebook ad group was updated
+        data_tests:
+          - not_null

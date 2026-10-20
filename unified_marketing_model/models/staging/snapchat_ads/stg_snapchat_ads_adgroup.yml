@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_snapchat_ads_adgroup
+    description: Snapchat adgroup history
+    columns:
+      - name: ad_group_id
+        description: The unique identifier for the Snapchat ad group
+        data_tests:
+          - not_null
+      - name: campaign_id
+        description: The campaign ID associated with the ad group
+      - name: ad_group_name
+        description: The name of the Snapchat ad group
+      - name: ad_group_updated_at
+        description: The last time the Snapchat ad group was updated
+        data_tests:
+          - not_null

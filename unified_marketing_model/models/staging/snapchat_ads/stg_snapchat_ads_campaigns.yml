@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_snapchat_ads_campaigns
+    description: Snapchat campaign history
+
+    columns:
+      - name: campaign_id
+        description: The unique identifier for the Snapchat campaign
+        data_tests:
+          - not_null
+          - unique
+      - name: campaign_name
+        description: The name of the Snapchat campaign
+      - name: account_id
+        description: The unique identifier for the Snapchat account associated with the campaign
+      

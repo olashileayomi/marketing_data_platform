@@ -1,0 +1,42 @@
+sources:
+  - name: snapchat_ads
+    database: bronze_development
+    description: data from  snapchat plaform (static)
+    schema: staging
+    config:
+      enabled: true
+      meta:
+        owner: "@habeeb_ajao"
+      freshness:
+        warn_after:
+          count: 2
+          period: day
+
+    tables:
+      - name: campaigns
+        description: campaign data from  snapchat plaform (static)
+        identifier: snapchat_ads_campaign_history_new_campaign_names
+        config:
+          enabled: true
+          event_time:
+
+      - name: adgroups
+        description: adgroups data from  snapchat plaform (static)
+        identifier: snapchat_ads_adgroup_history_new_ad_group_names
+        config:
+          enabled: true
+          event_time: ad_group_updated_at
+
+      - name: ads
+        description: ads data from  snapchat plaform (static)
+        identifier: snapchat_ads_ad_history_new_ad_names
+        config:
+          enabled: true
+          event_time: ad_detail_updated_at
+
+      - name: ads_stats
+        description: ads stats on spend, clicks and impression data from snapchat plaform (static)
+        identifier: snapchat_ads_stats
+        config:
+          enabled: true
+          event_time: ad_date

@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_facebook_ads_accounts
+    description: Facebook platform account model
+    columns:
+      - name: account_id
+        description: The unique identifier for the Facebook account
+        data_tests:
+          - not_null
+          - unique
+      - name: account_name
+        description: The name of the Facebook account
+      - name: ad_currency_code
+        description: The currency code used for the Facebook account (e.g., USD, EUR)  
+      - name: account_created_at
+        description: The date and time when the Facebook account was created
+      - name: account_updated_at
+        description: The last time the Facebook account was updated

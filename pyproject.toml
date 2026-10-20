@@ -1,0 +1,9 @@
+[project]
+name = "marketing-data-platform"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "dbt-core>=1.7.0,<3",
+    "dbt-databricks>=1.7.0,<2",
+    "elementary-data[databricks]>=0.26.0",
+]
